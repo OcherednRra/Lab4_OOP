@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Furniture {
+public class Furniture implements Comparable<Furniture> {
     String name;
     String color;
     int warranty;
@@ -32,11 +32,24 @@ public class Furniture {
 
     @Override
     public String toString() {
-        return  "Furniture {\n\tname: " + name +
+        return  "\nFurniture {\n\tname: " + name +
                 ",\n\tcolor: " + color +
                 ",\n\twarranty: " + warranty +
                 ",\n\tprice: " + price +
                 ",\n\tis new?: " + is_new +
                 "\n}";
+    }
+
+    @Override
+    public int compareTo(Furniture o) {
+        return this.getPrice() - o.getPrice();
+    }
+
+    public int getPrice() {
+        return this.price;
+    }
+
+    public int getWarranty() {
+        return this.warranty;
     }
 }

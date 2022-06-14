@@ -1,32 +1,1 @@
-import java.util.Arrays;
-import java.util.Collections;
-
-public class Lab4 {
-    public static void main(String[] args) {
-		/*
-		1515 % 11 = 8  -----> Клас меблі, як мінімум 5 полів
-		*/
-
-        Furniture[] furniture = {
-            new Furniture("armchair", 1200, 5, true),
-            new Furniture("bed", 1500, 3, true),
-            new Furniture("table", 1000, "brown", 2),
-            new Furniture("shelf", 500, "yellow", 1),
-            new Furniture("wardrobe", 900, "black", 7, false)
-        };
-
-        Integer[] prices = new Integer[furniture.length];
-        Integer[] warranties = new Integer[furniture.length];
-
-        for (byte i = 0; i < furniture.length; i++){
-            prices[i] = furniture[i].price;
-            warranties[i] = furniture[i].warranty;
-        }
-
-        Arrays.sort(prices);
-        Arrays.sort(warranties, Collections.reverseOrder());
-
-        System.out.println("Відсортований масив цін (за зростанням): " + Arrays.toString(prices));
-        System.out.println("Відсортований масив гарантій (за спаданням): " + Arrays.toString(warranties));
-    }
-}
+import java.util.*;public class Lab4 {    public static void main(String[] args) {		/*		1515 % 11 = 8  -----> Клас меблі, як мінімум 5 полів		*/        List<Furniture> furnitures = new ArrayList<>();        furnitures.add(new Furniture("armchair", 1200, 5, true));        furnitures.add(new Furniture("bed", 1500, 3, true));        furnitures.add(new Furniture("table", 1000, "brown", 2));        furnitures.add(new Furniture("shelf", 500, "yellow", 1));        furnitures.add(new Furniture("wardrobe", 900, "black", 7, false));        System.out.println("Сортування за ціною:");        Collections.sort(furnitures, new MaxPriceFurnitureComparator());        System.out.println(furnitures);        System.out.println("Сортування за гарантією:");        Collections.sort(furnitures, new MaxWarrantyFurnitureComparator());        System.out.println(furnitures);    }}
