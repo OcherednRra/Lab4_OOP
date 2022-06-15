@@ -42,10 +42,12 @@ public class Furniture implements Comparable<Furniture> {
 
     @Override
     public int compareTo(Furniture o) {
+
         return this.getPrice() - o.getPrice();
     }
 
     public int getPrice() {
+
         return this.price;
     }
 
